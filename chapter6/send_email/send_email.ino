@@ -60,12 +60,11 @@ void loop() {
 
   // Trigger if temperature exceeds limit
   if (temperature > 23) {
-      Serial.println("\nTriggered! Calling /Library/Google/Gmail/SendEmail...");
+    Serial.println("\nTriggered! Calling /Library/Google/Gmail/SendEmail...");
     
-      // Send email
-      runSendEmail(temperature);
-      digitalWrite(6, HIGH);
-    }
+    // Send email
+    runSendEmail(temperature);
+  }
   
   // Wait 
   delay(60000);
