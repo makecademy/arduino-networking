@@ -1,5 +1,5 @@
 // API key
-var key = "6426FFC9204DF1CFAE42D41AED6CB0B7";
+var key = "yourAPIkey";
 
 // When interface is loaded
 window.onload = function() {
