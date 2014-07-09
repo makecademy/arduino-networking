@@ -3,20 +3,24 @@
 error_reporting(E_ALL); 
 ini_set("display_errors", 1);
 
-// Get data
-$temperature = intval($_GET["temp"]);
-$humidity = intval($_GET["hum"]);
+// Check that data is present
+if (isset($_GET["temp"]) && isset($_GET["hum"])) {
 
-// Create DB instance
-$db = new SQLite3('database.db');
+	// Get data
+	$temperature = intval($_GET["temp"]);
+	$humidity = intval($_GET["hum"]);
 
-// Create new table if needed
-$db->exec('CREATE TABLE IF NOT EXISTS measurements (id INTEGER PRIMARY KEY, timestamp TIMESTAMP DEFAULT CURRENT_TIMESTAMP NOT NULL, temperature INTEGER, humidity INTEGER);');
+	// Create DB instance
+	$db = new SQLite3('database.db');
 
-// Store data in DB
-$db->exec("INSERT INTO measurements (temperature, humidity) VALUES ('$temperature', '$humidity');");
-    	
-// Answer
-echo "Data received";
+	// Create new table if needed
+	$db->exec('CREATE TABLE IF NOT EXISTS measurements (id INTEGER PRIMARY KEY, timestamp TIMESTAMP DEFAULT CURRENT_TIMESTAMP NOT NULL, temperature INTEGER, humidity INTEGER);');
+
+	// Store data in DB
+	$db->exec("INSERT INTO measurements (temperature, humidity) VALUES ('$temperature', '$humidity');");
+	    	
+	// Answer
+	echo "Data received";
+}
 
 ?>
