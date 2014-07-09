@@ -17,10 +17,12 @@ if (isset($_GET["temp"]) && isset($_GET["hum"])) {
 	$db->exec('CREATE TABLE IF NOT EXISTS measurements (id INTEGER PRIMARY KEY, timestamp TIMESTAMP DEFAULT CURRENT_TIMESTAMP NOT NULL, temperature INTEGER, humidity INTEGER);');
 
 	// Store data in DB
-	$db->exec("INSERT INTO measurements (temperature, humidity) VALUES ('$temperature', '$humidity');");
-	    	
-	// Answer
-	echo "Data received";
+	if($db->exec("INSERT INTO measurements (temperature, humidity) VALUES ('$temperature', '$humidity');")){
+	  echo "Data received";	
+	}
+	else {
+	  echo "Failed to log data";		
+	}
 }
 
 ?>
