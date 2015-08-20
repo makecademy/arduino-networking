@@ -14,7 +14,6 @@ script:
   - arduino --verify --board arduino:avr:uno $PWD/chapter3/sd_datalogger/sd_datalogger.ino
   - arduino --verify --board arduino:avr:uno $PWD/chapter3/measurement_server/measurement_server.ino
 
-  - arduino --verify --board arduino:avr:uno $PWD/chapter4/sketches/relay_anywhere/relay_anywhere.ino
   - arduino --verify --board arduino:avr:uno $PWD/chapter4/sketches/relay_remote/relay_remote.ino
   - arduino --verify --board arduino:avr:uno $PWD/chapter4/sketches/relay_test/relay_test.ino
 
