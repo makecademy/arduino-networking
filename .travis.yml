@@ -5,6 +5,7 @@ before_install:
 install:
   - arduino --install-library "aREST"
   - arduino --install-library "DHT sensor library"
+  - arduino --install-library "Time"
 script:
   - arduino --verify --board arduino:avr:uno $PWD/chapter1/client_example/client_example.ino
 
